@@ -111,4 +111,8 @@ main {
   cursor: pointer;
   font-weight: 400;
   transition: all 0.2s;
+
+  background-color: white;
+  background-color: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(10px);
 }
