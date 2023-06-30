@@ -1,6 +1,7 @@
 Vue.createApp({
     data: function(){
-        return
-    }
-
-}).mount('#vue')
+        return {
+            message: 'Hello, vue.js!',
+        }
+    },
+}).mount('#vue');
