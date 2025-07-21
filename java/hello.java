@@ -1,5 +1,5 @@
 class hello {
-    piblic atstaic void main(String args[]) {
+    public static void main(String args[]) {
         System.out.printIn("Hello world");
     }
 }
