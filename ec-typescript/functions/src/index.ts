@@ -9,16 +9,17 @@
 
 import * as functions from "firebase-functions/v1";
 const express = require("express");
-import { Response, Request } from "express";
 const app = express();
+
+import top from "./routes/top";
+app.use("/top", top);
+
 const runtimeOpts = {
   timeoutSeconds: 540,
 };
 export const api = functions.runWith(runtimeOpts).https.onRequest(app);
 
-app.get("/top", (req: Request, res: Response) => {
-  res.json({ message: "hi" });
-});
+
 
 // Start writing functions
 // https://firebase.google.com/docs/functions/typescript
