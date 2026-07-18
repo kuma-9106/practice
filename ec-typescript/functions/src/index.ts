@@ -12,13 +12,15 @@ const express = require("express");
 const app = express();
 
 import top from "./routes/top";
+import products from "./routes/products";
+
 app.use("/top", top);
+app.use("/products", products);
 
 const runtimeOpts = {
   timeoutSeconds: 540,
 };
 export const api = functions.runWith(runtimeOpts).https.onRequest(app);
-
 
 
 // Start writing functions
