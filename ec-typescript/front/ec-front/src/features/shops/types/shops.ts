@@ -1,3 +1,3 @@
 export type Shop = {
-  shopName: string;
+  shopName: string | null;
 }

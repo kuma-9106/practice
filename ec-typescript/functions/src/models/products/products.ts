@@ -22,5 +22,18 @@ export const getProducts = async () => {
       productPrice: docData.productPrice,
     });
   }
+  console.log("allProducts:" + allProducts);
   return allProducts;
 };
+
+export const getProduct = async (productId: string) => {
+  const { db } = initializeFirebaseServer();
+  const productRef = await db.collection("products").doc(productId).get();
+  if (!productRef) {
+    return "ドキュメントが見つかりません";
+  }
+  const productData = productRef.data() as Product;
+  return productData;
+};
+
+
