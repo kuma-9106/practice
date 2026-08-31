@@ -13,6 +13,9 @@ import { Container, Stack, Box } from "@mui/material";
 const product: FC = () => {
   const path = usePathname();
   const ids = extractShopIdAndProductIdFromProductUrl(path);
+  if (ids == null) {
+    return <div>ページが見つかりません</div>;
+  }
 
   const { shopId, productId } = ids;
   const { product, fetchProduct } = useProducts();
@@ -23,12 +26,8 @@ const product: FC = () => {
     }
   }, [productId, fetchProduct, ids]);
 
-  if (ids == null) {
-    return <div>ページが見つかりません</div>;
-  }
-
-  if (product === null) {
-    return <div>読み込み中...</div>;
+  if (product == null) {
+    return <div>商品が見つかりません</div>;
   }
   
   return (
