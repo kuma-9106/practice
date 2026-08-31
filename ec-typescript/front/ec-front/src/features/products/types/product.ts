@@ -1,6 +1,9 @@
+import { Shop } from "@/features/shops/types/shops";
 export type ProductCategory = "tops" | "inners" | "bottoms" | "hoes";
 
 export type Product = {
+  productId: number;
+  shopName: Shop["shopName"];
   productImage: string;
   productName: string;
   productCategory: ProductCategory;
@@ -12,5 +15,5 @@ export type ProductObject = {
 };
 
 export type Products = {
-  products: Product[]
+  products: Product[];
 }

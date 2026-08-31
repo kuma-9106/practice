@@ -8,7 +8,8 @@ const Home: FC = () => {
   const { products, fetchProducts } = useProducts();
   useEffect(() => {
     (async () => {
-      await fetchProducts();
+      const res = await fetchProducts();
+      console.log(res);
     })();
   }, []);
   return (
