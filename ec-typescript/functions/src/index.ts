@@ -14,10 +14,12 @@ const cors = require("cors");
 
 import top from "./routes/top";
 import products from "./routes/products";
+import auth from "./routes/auth";
 
 app.use(cors());
 app.use("/top", top);
 app.use("/products", products);
+app.use("/auth", auth);
 
 const runtimeOpts = {
   timeoutSeconds: 540,

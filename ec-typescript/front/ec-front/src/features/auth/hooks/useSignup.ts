@@ -8,13 +8,13 @@ export const useSignup = () => {
 
   const postSignup = async (body: SignupBody) => {
     const response = await api
-      .post("/signup", {
+      .post("/auth/signup", {
         name: body.name,
         email: body.email,
         password: body.password,
       })
       .catch((e: AxiosError) => {
-        console.error(JSON.stringify(e.response));
+        console.error("エラーです", JSON.stringify(e.response));
       });
 
     if (response == undefined) {
@@ -31,3 +31,4 @@ export const useSignup = () => {
 
   return { postSignup };
 };
+
