@@ -26,7 +26,7 @@ const product: FC = () => {
     }
   }, [productId, fetchProduct, ids]);
 
-  if (product == null) {
+  if (product === null) {
     return <div>商品が見つかりません</div>;
   }
   

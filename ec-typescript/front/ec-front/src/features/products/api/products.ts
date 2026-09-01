@@ -9,7 +9,6 @@ export const getProducts = async () => {
   const response = await api.get("/products").catch((e: AxiosError) => {
     console.error(JSON.stringify(e.response));
   });
-  console.log("getProducts:" + response);
 
   // エラーハンドリング
   if (response == undefined) {
