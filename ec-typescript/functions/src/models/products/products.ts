@@ -2,7 +2,7 @@ import initializeFirebaseServer from "../../initFirebase";
 import { Product, ProcessedProduct } from "../../types/product";
 
 export const getProducts = async () => {
-  let allProducts: ProcessedProduct[] = [];
+  const allProducts: ProcessedProduct[] = [];
   const { db } = initializeFirebaseServer();
   const allProductsRef = await db.collection("products").get();
   if (!allProductsRef) {

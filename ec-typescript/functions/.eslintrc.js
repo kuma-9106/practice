@@ -1,3 +1,5 @@
+const path = require("path");
+
 module.exports = {
   root: true,
   env: {
@@ -14,20 +16,31 @@ module.exports = {
   ],
   parser: "@typescript-eslint/parser",
   parserOptions: {
-    project: ["tsconfig.json", "tsconfig.dev.json"],
+    project: [
+      path.resolve(__dirname, "tsconfig.json"),
+      path.resolve(__dirname, "tsconfig.dev.json"),
+    ],
+    tsconfigRootDir: __dirname,
     sourceType: "module",
   },
   ignorePatterns: [
     "/lib/**/*", // Ignore built files.
-    "/generated/**/*", // Ignore generated files.
+    ".eslintrc.js",
   ],
-  plugins: [
-    "@typescript-eslint",
-    "import",
-  ],
+  plugins: ["@typescript-eslint", "import"],
   rules: {
-    "quotes": ["error", "double"],
+    quotes: ["error", "double"],
     "import/no-unresolved": 0,
-    "indent": ["error", 2],
+    indent: ["error", 2],
+    "@typescript-eslint/no-var-requires": "off", // Allow require() for CommonJS compatibility
+    "require-jsdoc": "off", // JSDoc comments not required
+    "new-cap": [
+      "error",
+      {
+        capIsNew: false, // Allow calling functions that start with uppercase
+      },
+    ],
+    "object-curly-spacing": ["error", "always"], // Allow spaces in { imports }
   },
 };
+
